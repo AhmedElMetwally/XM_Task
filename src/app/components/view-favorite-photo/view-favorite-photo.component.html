@@ -1,0 +1,7 @@
+<mat-card class="image-card" *ngIf="photo">
+  <img [src]="photo.url" alt="Full-size image" />
+</mat-card>
+
+<div class="centered-button">
+  <button mat-raised-button color="warn" (click)="removeFavoritePhoto()">Remove from favorites</button>
+</div>

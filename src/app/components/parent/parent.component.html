@@ -1,0 +1,21 @@
+<mat-toolbar class="toolbar" color="primary">
+    <button
+      (click)="navigateToListPhotos()"
+      mat-raised-button
+      color="accent"
+      [disabled]="activeRoute === 'listPhotos'"
+    >
+      Photos
+    </button>
+    <button
+      (click)="navigateToListFavoritePhotos()"
+      mat-raised-button
+      color="accent"
+      [disabled]="activeRoute === 'listFavoritePhotos'"
+    >
+      Favorites
+    </button>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+  

@@ -1,0 +1,11 @@
+<div class="photos-container">
+  <div class="photo-row">
+    <div class="photo" *ngFor="let photo of photos">
+      <img [src]="photo.url" alt="Loading" (click)="addToFavorites(photo)"  />
+    </div>
+  </div>
+</div>
+
+<div appInfiniteScroll (infiniteScroll)="getPhotos()" class="spinner-container">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>

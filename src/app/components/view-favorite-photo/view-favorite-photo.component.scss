@@ -1,0 +1,28 @@
+.image-card {
+  margin: 10px auto;
+  width: 650px;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 650px;
+    height: 650px;
+  }
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin: 0 auto;
+    font-size: 18px;
+    min-width: 220px;
+    max-width: 320px;
+    height: 48px;
+    flex-grow: 1;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="photos-container">
+  <div class="photo-row">
+    <div class="photo" *ngFor="let photo of photos">
+      <img
+        (click)="navigateToViewFavoritePhoto(photo.id)"
+        [src]="photo.url"
+        alt="Loading"
+      />
+    </div>
+  </div>
+</div>

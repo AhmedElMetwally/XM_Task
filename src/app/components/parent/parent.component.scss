@@ -1,0 +1,17 @@
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    button {
+      font-size: 18px;
+      min-width: 220px;
+      max-width: 220px;
+      height: 48px;
+      flex-grow: 1;
+      &:first-of-type {
+        margin-right: 40px;
+      }
+    }
+  }
+  
