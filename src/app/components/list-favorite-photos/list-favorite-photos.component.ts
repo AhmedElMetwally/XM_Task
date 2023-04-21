@@ -1,31 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Photo } from 'src/app/models/photo.model';
-import { PhotoService } from 'src/app/services/photo.service';
+
+import { Photo } from '../../models/photo.model';
+import { PhotoService } from '../../services/photo.service';
 
 @Component({
   selector: 'app-list-favorite-photos',
   templateUrl: './list-favorite-photos.component.html',
-  styleUrls: ['./list-favorite-photos.component.scss'],
+  styleUrls: ['./list-favorite-photos.component.scss']
 })
-export class ListFavoritePhotosComponent {
+export class ListFavoritePhotosComponent implements OnInit {
   photos: Photo[] = [];
 
   constructor(
     private photoService: PhotoService,
-    public router: Router,
+    public router: Router
   ) {}
 
-  getPhotos() {
-    const photos = this.photoService.getFavoritePhotos();
-    this.photos.push(...photos);
-  }
-
   ngOnInit(): void {
-    this.getPhotos();
+    this.getFavoritePhotos();
   }
 
-  navigateToViewFavoritePhoto(id: number) {
+  getFavoritePhotos(): void {
+    this.photos = this.photoService.getFavoritePhotos();
+  }
+
+  navigateToViewFavoritePhoto(id: number): void {
     this.router.navigate(['/photos', id]);
   }
 }

@@ -52,7 +52,6 @@ describe('ViewFavoritePhotoComponent', () => {
     const route: ActivatedRoute = TestBed.inject(ActivatedRoute);
     (route.params as Subject<any>).next({ id: 123 });
 
-    expect(component.id).toBe(123);
     expect(photoServiceSpy.getFavoritePhotoById).toHaveBeenCalledWith(123);
     expect(component.photo).toBe(photo);
   });

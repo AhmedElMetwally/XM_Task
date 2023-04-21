@@ -1,43 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Photo } from 'src/app/models/photo.model';
-import { PhotoService } from 'src/app/services/photo.service';
+import { Photo } from '../../models/photo.model';
+import { PhotoService } from '../../services/photo.service';
 
 @Component({
   selector: 'app-view-favorite-photo',
   templateUrl: './view-favorite-photo.component.html',
-  styleUrls: ['./view-favorite-photo.component.scss'],
+  styleUrls: ['./view-favorite-photo.component.scss']
 })
-export class ViewFavoritePhotoComponent {
+export class ViewFavoritePhotoComponent implements OnInit {
   photo: Photo | null = null;
-  id: number = 0;
 
   constructor(
     private route: ActivatedRoute,
     private photoService: PhotoService,
-    private router: Router,
+    private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.id = +params['id'];
-      this.getFavoritePhotoById();
+      const id = +params['id'];
+      this.getFavoritePhotoById(id);
     });
   }
 
-  getFavoritePhotoById() {
-    const photo = this.photoService.getFavoritePhotoById(this.id);
-    this.photo = photo || null;
+  getFavoritePhotoById(id: number): void {
+    this.photo = this.photoService.getFavoritePhotoById(id) ?? null;
   }
 
-  removeFavoritePhoto() {
+  removeFavoritePhoto(): void {
     if (this.photo) {
       this.photoService.removeFavoritePhoto(this.photo);
       this.navigateToViewFavoritePhotos();
     }
   }
 
-  navigateToViewFavoritePhotos() {
+  navigateToViewFavoritePhotos(): void {
     this.router.navigate(['/favorites']);
   }
 }
